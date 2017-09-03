@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     // make sure the dir_name exists
-    dir_name = QString("images").append(QDir::separator());
+    dir_name = QString("workout_images").append(QDir::separator());
     if (!QDir(dir_name).exists())
         QDir().mkdir(dir_name);
 
@@ -64,7 +64,7 @@ int MainWindow::updateDisplayImage()
                cv::Size(img_seg_blend.cols/2, img_seg_blend.rows/2));
 
     cv::transpose(img_seg_blend, img_seg_blend);
-    cv::flip(img_seg_blend, img_seg_blend, 1);
+    //cv::flip(img_seg_blend, img_seg_blend, 1);
 
     // convert the mat to a qimage and display it in the qgraphicview
     QImage qimg_seg = Utility::convertImage(img_seg_blend);
@@ -77,7 +77,7 @@ int MainWindow::updateDisplayImage()
                cv::Size(img_tran_blend.cols/2, img_tran_blend.rows/2));
 
     cv::transpose(img_tran_blend, img_tran_blend);
-    cv::flip(img_tran_blend, img_tran_blend, 1);
+    //cv::flip(img_tran_blend, img_tran_blend, 1);
 
 
     // convert the mat to a qimage and display it in the qgraphicview
